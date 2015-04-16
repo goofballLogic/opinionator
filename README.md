@@ -1,0 +1,2 @@
+# opinionator
+Gather opinions
