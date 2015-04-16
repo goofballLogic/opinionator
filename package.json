@@ -1,0 +1,26 @@
+{
+  "name": "opinionator",
+  "version": "0.0.1",
+  "description": "Gather opinions",
+  "main": "index.js",
+  "dependencies": {
+    "microbus": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goofballLogic/opinionator.git"
+  },
+  "keywords": [
+    "opinion"
+  ],
+  "author": "goofballLogic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goofballLogic/opinionator/issues"
+  },
+  "homepage": "https://github.com/goofballLogic/opinionator"
+}
