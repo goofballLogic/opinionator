@@ -4,7 +4,11 @@
   "description": "Gather opinions",
   "main": "index.js",
   "dependencies": {
-    "microbus": "^0.1.0"
+    "good": "^6.1.0",
+    "good-console": "^5.0.0",
+    "hapi": "^8.4.0",
+    "microbus": "^0.1.0",
+    "pm2": "^0.12.10"
   },
   "devDependencies": {},
   "scripts": {
