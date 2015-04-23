@@ -10,9 +10,16 @@
     "microbus": "^0.1.0",
     "pm2": "^0.12.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "cucumber": "^0.4.8",
+    "gulp": "^3.8.11",
+    "reactify": "^1.1.0",
+    "zombie": "3.1.1"
+  },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
