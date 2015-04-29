@@ -11,10 +11,14 @@ module.exports = function() {
 			this.page.open( url, function( status ) {
 
 				this.lastStatus = status;
-console.log( status );
 				callback();
 
 			}.bind( this ) );
+
+ 		};
+ 		this.evaluate = function( func, callback ) {
+
+ 			this.page.evaluate( func, callback );
 
  		};
  		this.openBrowser = function( callback ) {

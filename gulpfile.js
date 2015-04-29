@@ -3,15 +3,15 @@ var gulp = require( "gulp" );
 var cucumber = require( "gulp-cucumber" );
 var watch = require( "gulp-watch" );
 var server = require( 'gulp-develop-server' );
+var cukes = require( "gulp-cukes" );
 
 gulp.task( "cukes", function( done ) {
 
-	return gulp.src( "specs/**/*.feature" ).pipe( cucumber( {
+	return gulp.src( "specs/**/*.feature", { read: false } ).pipe(
+		cukes().format("pretty")
+			.withDiagnostics()
 
-		"steps" : "specs/steps/**/*.js,support/*_hooks.js",
-		"format" : "pretty"
-
-	} ) );
+	);
 
 } );
 

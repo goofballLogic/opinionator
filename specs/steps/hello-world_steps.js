@@ -1,3 +1,5 @@
+var should = require( "chai" ).should();
+
 module.exports = function() {
 
 	this.World = new (require( "../support/world.js" ))().World;
@@ -6,19 +8,26 @@ module.exports = function() {
 
 	this.Given(/^I am on the home page$/, function ( callback ) {
 
-console.log( 1234 );
 		this.visit( "http://localhost:3000/", callback );
 
 	} );
 
 	this.When(/^I fetch the body text$/, function (callback) {
 		// Write code here that turns the phrase above into concrete actions
-		callback.pending();
+		this.evaluate( function() { return window.document.body.textContent; }, function( result ) {
+
+			this.bodyText = result;
+			callback();
+
+		}.bind( this ) );
+
 	});
 
-	this.Then(/^I should find "([^"]*)"$/, function (arg1, callback) {
-		// Write code here that turns the phrase above into concrete actions
-		callback.pending();
+	this.Then(/^I should find "([^"]*)"$/, function (expected, callback) {
+
+		this.bodyText.should.equal( expected );
+		callback();
+
 	});
 
 };

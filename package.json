@@ -12,9 +12,11 @@
   },
   "devDependencies": {
     "browserify": "^9.0.8",
+    "chai": "^2.3.0",
     "cucumber": "^0.4.8",
     "gulp": "^3.8.11",
     "gulp-cucumber": "0.0.8",
+    "gulp-cukes": "0.0.1",
     "gulp-develop-server": "^0.4.2",
     "gulp-watch": "^4.2.4",
     "phantom": "^0.7.2",
