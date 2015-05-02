@@ -4,25 +4,23 @@
   "description": "Gather opinions",
   "main": "index.js",
   "dependencies": {
+    "boom": "^2.7.1",
     "good": "^6.1.0",
     "good-console": "^5.0.0",
     "hapi": "^8.4.0",
     "microbus": "^0.2.0",
-    "pm2": "^0.12.10"
+    "negotiator": "^0.5.1"
   },
   "devDependencies": {
     "browserify": "^9.0.8",
     "chai": "^2.3.0",
     "cucumber": "^0.4.8",
     "gulp": "^3.8.11",
-    "gulp-cucumber": "0.0.8",
     "gulp-cukes": "0.0.1",
     "gulp-develop-server": "^0.4.2",
     "gulp-watch": "^4.2.4",
     "phantom": "^0.7.2",
-    "phantomjs": "^1.9.16",
-    "reactify": "^1.1.0",
-    "zombie": "3.1.1"
+    "reactify": "^1.1.0"
   },
   "scripts": {
     "test": "gulp test",

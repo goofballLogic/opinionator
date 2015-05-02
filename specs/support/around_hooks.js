@@ -1,16 +1,22 @@
 
 module.exports = function() {
-  this.Around( function( runScenario ) {
 
-      this.openBrowser( function() {
+	this.Around( function( runScenario ) {
 
-        runScenario( function( callback ) {
-          this.closeBrowser();
-          callback();
-        } );
-      } );
+		console.log( "Opening browser" );
+		this.openBrowser( function() {
 
-  } );
+			runScenario( function( callback ) {
+
+				console.log( "Closing browser" );
+				this.closeBrowser();
+				callback();
+
+			} );
+
+		} );
+
+	} );
 
 };
 

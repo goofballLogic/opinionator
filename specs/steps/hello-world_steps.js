@@ -1,4 +1,6 @@
 var should = require( "chai" ).should();
+var http = require( "http" );
+var config = require( "../../config" );
 
 module.exports = function() {
 
@@ -29,5 +31,25 @@ module.exports = function() {
 		callback();
 
 	});
+
+	this.Given( /^I request the root of the site as JSON$/, function (callback) {
+
+		var opts = { host: "localhost", port: config.port, method: "GET", headers: { "Accept" : "application/json" } }
+		var req = http.request( opts, function( res ) {
+
+			this.response = res;
+			callback();
+
+		}.bind( this ) );
+		req.end();
+
+	});
+
+	this.Then( /^I should receive a (\d+) response$/, function ( statusCode, callback) {
+
+		this.response.statusCode.should.equal( Number( statusCode ) );
+		callback();
+
+	} );
 
 };

@@ -7,3 +7,7 @@ Feature: Hello world
     Given I am on the home page
     When I fetch the body text
     Then I should find "hello world"
+
+  Scenario: Attempting to load JSON from the root
+  	Given I request the root of the site as JSON
+  	Then I should receive a 406 response
