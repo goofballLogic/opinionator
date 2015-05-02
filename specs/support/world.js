@@ -18,7 +18,21 @@ module.exports = function() {
  		};
  		this.evaluate = function( func, callback ) {
 
- 			this.page.evaluate( func, callback );
+
+ 			var err = null;
+ 			this.page.set( "onError", function( msg, trace ) {
+
+ 				err = [ msg, trace ];
+
+ 			} );
+ 			var args = Array.prototype.slice.call( arguments, 0 );
+ 			args[ 1 ] = function( result ) {
+
+ 				if( err ) return callback( err );
+ 				callback( null, result );
+
+ 			};
+ 			this.page.evaluate.apply( this, args );
 
  		};
  		this.openBrowser = function( callback ) {

@@ -16,7 +16,7 @@ module.exports = function() {
 
 	this.When(/^I fetch the body text$/, function (callback) {
 		// Write code here that turns the phrase above into concrete actions
-		this.evaluate( function() { return window.document.body.textContent; }, function( result ) {
+		this.evaluate( function() { return window.document.body.textContent; }, function( err, result ) {
 
 			this.bodyText = result;
 			callback();
