@@ -8,6 +8,7 @@
     "good": "^6.1.0",
     "good-console": "^5.0.0",
     "hapi": "^8.4.0",
+    "hapi-mustache": "0.0.1",
     "hiredis": "^0.3.0",
     "microbus": "^0.2.0",
     "mustache": "^2.0.0",
