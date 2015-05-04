@@ -27,7 +27,7 @@ module.exports = function() {
 
 	this.Then(/^I should find "([^"]*)"$/, function (expected, callback) {
 
-		this.bodyText.should.equal( expected );
+		this.bodyText.should.contain( expected );
 		callback();
 
 	});
