@@ -21,3 +21,15 @@ Background:
       | 2015-05-02 |
       | 2015-05-03 |
       | 2015-06-01 |
+
+  Scenario: Move an option up
+    Given I follow the responder link
+    When I set the second item's order to 1
+    And I submit the form
+    Then I should see a new top item "2015-05-02"
+
+  Scenario: Move an option up
+    Given I follow the responder link
+    When I set the first item's order to 2
+    And I submit the form
+    Then I should see a new top item "2015-05-02"

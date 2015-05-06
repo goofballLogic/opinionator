@@ -121,7 +121,7 @@ this.Then(/^I should see the (\d+) date options:$/, function ( count, options, c
   this.page.evaluate( function() {
 
     var ret = [];
-    var li = document.querySelectorAll( "li" );
+    var li = document.querySelectorAll( "li span" );
     for( var i = 0; i < li.length; i++ ) { ret.push( li[ i ].textContent ); }
     return ret;
 
@@ -139,5 +139,58 @@ this.Then(/^I should see the (\d+) date options:$/, function ( count, options, c
 
 });
 
+this.When( /^I set the second item's order to (\d+)$/, function ( newOrder, callback ) {
+
+  this.page.evaluate( function( newIndex ) {
+
+    document.querySelectorAll( "li select" )[ 1 ].selectedIndex = newIndex;
+
+  }, callback, newOrder - 1 );
+
+});
+
+this.When(/^I set the first item's order to (\d+)$/, function ( newOrder, callback) {
+
+  this.page.evaluate( function( newIndex ) {
+
+    document.querySelectorAll( "li select" )[ 0 ].selectedIndex = newIndex;
+
+  }, callback, newOrder - 1 );
+
+});
+
+this.When(/^I submit the form$/, function ( callback ) {
+
+  this.awaitLoad( function() {
+
+    this.page.evaluate( function() {
+
+      document.querySelector( "input[type=\"submit\"]" ).click();
+
+    } );
+
+  }, function( result ) {
+
+    if( result === "success" ) { return callback(); }
+    callback.fail();
+
+  } );
+
+});
+
+this.Then(/^I should see a new top item "([^"]*)"$/, function ( expected, callback) {
+
+
+  this.page.evaluate( function() {
+
+    return document.querySelectorAll( "li span" )[ 0 ].textContent;
+
+  }, verify( function( actual ) {
+
+    actual.should.equal( new Date( expected ).toDateString() );
+
+  }, callback ) );
+
+});
 
 };

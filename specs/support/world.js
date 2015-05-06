@@ -16,9 +16,10 @@ module.exports = function() {
 			var err = null;
 			this.page.set( "onError", function( msg, trace ) {
 
+				this.page.set( "onError", null );
 				err = [ msg, trace ];
 
-			} );
+			}.bind( this ) );
 			var args = Array.prototype.slice.call( arguments, 0 );
 			args[ 1 ] = function( result ) {
 
@@ -27,6 +28,17 @@ module.exports = function() {
 
 			};
 			this.page.evaluate.apply( this, args );
+
+		};
+		this.awaitLoad = function( func, callback ) {
+
+			this.page.set( "onLoadFinished", function( response ) {
+
+				this.page.set( "onLoadFinished", null );
+				callback( response );
+
+			}.bind( this ) );
+			func.call( this );
 
 		};
 		this.openBrowser = function( callback ) {

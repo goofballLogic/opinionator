@@ -1,0 +1,54 @@
+html, body {
+
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+}
+
+body {
+
+	padding: 2em;
+
+}
+
+ol {
+
+	padding: 0;
+	width: 300px;
+
+}
+
+.draggable {
+
+	cursor: move;
+
+}
+
+ol li.draggable select {
+
+	visibility: hidden;
+
+}
+
+ol li {
+
+	color: silver;
+	background-color: #EEE;
+	list-style-position: inside;
+	padding: 1em;
+	margin-bottom: 1em;
+
+}
+
+ol li:first-child span {
+
+	font-size: 1.2em;
+	color: black;
+
+}
+
+ol li:nth-child(2) span {
+
+	font-size: 1.1em;
+	color: black;
+
+}
