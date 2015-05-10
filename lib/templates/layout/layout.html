@@ -4,10 +4,11 @@
 		<title>{{title}}</title>
 		<link rel="Stylesheet" href="{{root}}/public/css/normalise.1.css" />
 		<link rel="Stylesheet" href="{{root}}/public/css/layout.1.css" />
-		<script src="{{root}}/public/js/main.js"></script>
+		<script src="{{root}}/public/js/react.min.js"></script>
+		<!--script src="{{root}}/public/js/main.js"></script-->
 	</head>
 	<body>
-{{messages}}
-{{&content}}
+		<article class="messages">{{messages}}</article>
+		<main>{{&content}}</main>
 	</body>
 </html>

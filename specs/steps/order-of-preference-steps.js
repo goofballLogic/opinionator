@@ -143,9 +143,9 @@ this.When( /^I set the second item's order to (\d+)$/, function ( newOrder, call
 
   this.page.evaluate( function( newIndex ) {
 
-    document.querySelectorAll( "li select" )[ 1 ].selectedIndex = newIndex;
+    document.querySelectorAll( "li input" )[ 1 ].value = newIndex;
 
-  }, callback, newOrder - 1 );
+  }, callback, newOrder );
 
 });
 
@@ -153,9 +153,9 @@ this.When(/^I set the first item's order to (\d+)$/, function ( newOrder, callba
 
   this.page.evaluate( function( newIndex ) {
 
-    document.querySelectorAll( "li select" )[ 0 ].selectedIndex = newIndex;
+    document.querySelectorAll( "li input" )[ 0 ].value = newIndex;
 
-  }, callback, newOrder - 1 );
+  }, callback, newOrder );
 
 });
 

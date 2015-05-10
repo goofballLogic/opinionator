@@ -1,16 +1,15 @@
 <h2>{{description}}</h2>
 <form method="POST">
-<ol>
-	{{#options}}
-	<li>
-		<span>{{text}}</span>
-		<select name={{value}}>
-		{{#setting}}
-			<option value="{{value}}" {{#selected}}selected{{/selected}}>{{text}}</option>
-		{{/setting}}
-		</select>
-	</li>
-	{{/options}}
-</ol>
-<input type="submit" value="submit" />
+	<section id="{{widgetId}}">{{{widgets.response.html}}}</section>
+	<script src="{{widgets.response.url}}"></script>
+	<script>
+	(function() {
+		"use strict";
+		/*eslint-disable*/
+		var widget = document.getElementById( "{{widgetId}}");
+		var factory = window.opinionator.widgets[ '{{widgetName}}' ];
+		var data = JSON.parse( '{{{widgets.response.json}}}' );
+		React.render( factory( data ), widget );
+	}());</script>
+	<input type="submit" value="submit" />
 </form>

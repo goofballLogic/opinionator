@@ -23,7 +23,14 @@ ol {
 
 }
 
-ol li.draggable select {
+.messages {
+
+	color: #00C;
+	font-size: 0.8em;
+	-text-transform: uppercase;
+}
+
+-ol li.draggable select {
 
 	visibility: hidden;
 
@@ -31,11 +38,21 @@ ol li.draggable select {
 
 ol li {
 
+	white-space: nowrap;
 	color: silver;
 	background-color: #EEE;
 	list-style-position: inside;
 	padding: 1em;
 	margin-bottom: 1em;
+
+	-webkit-user-select: none; /* Chrome/Safari */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+ */
+
+/* Rules below not implemented in browsers yet */
+-o-user-select: none;
+user-select: none;
+
 
 }
 
@@ -50,5 +67,11 @@ ol li:nth-child(2) span {
 
 	font-size: 1.1em;
 	color: black;
+
+}
+
+ol li input {
+
+	width: 2em;
 
 }
